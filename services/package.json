@@ -1,0 +1,26 @@
+{
+  "name": "services",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.1.1",
+    "@elysiajs/eden": "^1.1.3",
+    "@elysiajs/swagger": "^1.1.6",
+    "@libsql/client": "^0.14.0",
+    "better-auth": "^1.0.22",
+    "dotenv": "^16.4.7",
+    "drizzle-kit": "^0.30.1",
+    "drizzle-orm": "^0.38.2",
+    "elysia": "^1.1.26",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.14",
+    "@types/pg": "^8.11.10",
+    "bun-types": "latest"
+  },
+  "module": "src/index.js"
+}
