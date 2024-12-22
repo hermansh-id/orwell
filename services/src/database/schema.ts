@@ -45,3 +45,32 @@ export const verification = pgTable("verification", {
 	createdAt: timestamp('createdAt'),
 	updatedAt: timestamp('updatedAt')
 });
+
+
+export const workspace = pgTable("workspace", {
+	id: text("id").primaryKey(),
+	name: text('name').notNull(),
+	createdAt: timestamp('createdAt').notNull(),
+	updatedAt: timestamp('updatedAt').notNull()
+});
+
+export const apiKey = pgTable("apiKey", {
+	id: text("id").primaryKey(),
+	name: text('name').notNull(),
+	publicKey: text('publicKey').notNull(),
+	secretKey: text('secretKey').notNull(),
+	displaySecretKey: text('displaySecretKey').notNull(),
+	description: text('description'),
+	createdAt: timestamp('createdAt').notNull(),
+	updatedAt: timestamp('updatedAt').notNull(),
+	workspaceId: text('workspaceId').notNull().references(() => workspace.id)
+});
+
+export const workspaceMember = pgTable("workspaceMember", {
+	id: text("id").primaryKey(),
+	userId: text('userId').notNull().references(() => user.id),
+	workspaceId: text('workspaceId').notNull().references(() => workspace.id),
+	role: text('role').notNull(),
+	createdAt: timestamp('createdAt').notNull(),
+	updatedAt: timestamp('updatedAt').notNull()
+});

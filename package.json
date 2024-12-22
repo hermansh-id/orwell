@@ -1,0 +1,15 @@
+{
+  "name": "orwell",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"cd web && bun dev\" \"cd services && bun dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "web",
+    "services"
+  ]
+}
